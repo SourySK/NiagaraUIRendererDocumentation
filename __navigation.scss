@@ -1,0 +1,103 @@
+.navigationToggle
+{
+    position: fixed;
+    z-index: 5;
+    right: 5px;
+    top: 5px;
+
+    img
+    {
+        width: 40px;
+        opacity: 0.5;
+    }
+}
+
+#navigationCheckbox:checked ~ .navigation
+{
+    transform: translateX(-400px);
+}
+
+.navigation
+{
+    position: fixed;
+    top: 35px;
+    left: -10px;
+    background-color: $navigationBg;
+    border-radius: 10px;
+
+    padding: 10px;
+    padding-left: 15px;
+    transition: 0.2s;
+
+    width: 290px;
+
+    h3
+    {
+        margin-left: 20px;
+    }
+
+    ul
+    {
+        padding-left: 25px;
+        padding-bottom: 10px;
+    }
+
+    li
+    {
+        list-style: none;
+        margin: 10px 20px 10px 0px;
+        padding: 8px 5px 4px;
+        border-bottom: 1px solid $linkColor;
+
+        &:hover
+        {
+            background-color: $linkColor;
+            color: $bgColor;
+        }
+    }
+}
+
+@media (min-width: 850px) {
+    .documentationLayout
+    {
+        @include flex-center(row);
+        align-items: flex-start;
+    }
+
+    .navigationToggle
+    {
+        display: none;
+    }
+
+    .navigation
+    {
+        position: static;
+        transform: translateX(0);
+        background-color: transparent;
+        border-radius: 0;
+
+        h3
+        {
+            margin-top: 0;
+            margin-left: 0;
+            color: $darkTextColor;
+        }
+
+        ul
+        {
+            padding-left: 0;
+        }
+    }
+
+    #navigationCheckbox:checked ~ .navigation
+    {
+        transform: translateX(0);
+    }
+
+    .documentation
+    {
+        width: 70%;
+        max-width: 1200px;
+    }
+
+}

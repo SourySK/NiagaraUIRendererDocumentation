@@ -1,0 +1,21 @@
+$complementaryColor: rgb(243, 138, 0);
+$bgColor: #111;
+$navigationBg: rgb(243, 138, 0);
+$darkTextColor: #666;
+$fadedTextColor: #AAA;
+$textColor: rgb(255, 255, 255);
+$linkColor:#EEE;
+$shadowColor: rgba(0, 0, 0, 0.5);
+$darkShadowColor: rgba(0, 0, 0, 0.7);
+
+@mixin flex-center($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@import "__navigation.scss";
+@import "__title.scss";
+@import "__documentation.scss";

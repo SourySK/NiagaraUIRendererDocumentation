@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Niagara UI Renderer Documentation</title>
+</head>
+
+<body class="background">
+
+    <div>
+        <label for="navigationCheckbox" class="navigationToggle">
+            <img src="Images/NavigationMenu.svg">
+        </label>
+    </div>
+
+    <div class="titleCard">
+        <div class="titleBox">
+            <h1>Niagara <mark class="complementary">UI</mark><br>Renderer</h1>
+            <h4><mark class="complementary">Free</mark> plugin for Unreal Engine</h4>
+
+            <div class="downloads">
+                <a href="https://forums.unrealengine.com/t/niagara-ui-renderer-free-plugin-for-ue4-ue5/211365"
+                    target="_blank">
+                    <div class="button">
+                        <div class="smallText">
+                            <mark class="complementary">Download</mark> from
+                        </div>
+                        Unreal Forums
+                    </div>
+                </a>
+                <a href="https://github.com/SourySK/NiagaraUIRenderer" target="_blank">
+                    <div class="button">
+                        <div class="smallText">
+                            Sample Project / <mark class="complementary">Source</mark>
+                        </div>
+                        GitHub
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="mainDocumentation">
+        <h2 class="documentationTitle">DOCUMENTATION</h2>
+        <h2 class="documentationArrow">V</h2>
+
+        <div class="documentationLayout">
+            <input type="checkbox" id="navigationCheckbox" class="hidden" checked>
+            <div class="navigation">
+                <h3>Navigation</h3>
+                <ul>
+                    <a href="#Overview" class="navigationLink">
+                        <li>Overview</li>
+                    </a>
+                    <a href="#Performance" class="navigationLink">
+                        <li>Performance</li>
+                    </a>
+                    <a href="#Install" class="navigationLink">
+                        <li>Installation Guide</li>
+                    </a>
+                    <a href="#SetUp" class="navigationLink">
+                        <li>Beginner Guide</li>
+                    </a>
+                    <a href="#WidgetVariables" class="navigationLink">
+                        <li>Widget Variables</li>
+                    </a>
+                    <a href="#WidgetFunctions" class="navigationLink">
+                        <li>Widget Functions</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="documentation">
+                <h2 id="Overview">Overview</h2>
+                <p>
+                    For a long time I have wanted to enhance my games with some UI particles, but I couldn’t find a good
+                    option.
+                    The only available options were render targets, a clunky and expensive choice, or some plugin from
+                    the Marketplace without Niagara support.
+                    While waiting for Epic to integrate UI particles to their engine, I thought that I could give it a
+                    shot myself. I ended up with something that works pretty well, so I want to share it with you guys.
+                    Feel free to use it however you want, and leave any comments or feedback.
+                </p>
+                <p>
+                    Niagara UI Plugin adds Niagara Particle System Widget that allows you to render Niagara particle
+                    systems directly into the UI.
+                    The plugin supports <b>sprite and ribbon CPU particles. Minimum version of Unreal Engine 4.26 is
+                        required!</b> Everything higher, including UE5 should work just fine.
+                    This plugin was tested on Windows and Android, but it should work fine on other platforms too.
+                </p>
+
+                <div class="videoWrap">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iFa40Sf4QPA"
+                        title="Demo Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <h5 class="anotation">Demo video showing of features of the plugin</h5>
+
+
+                <h2 id="Performance">Performance</h2>
+
+                <img src="Images/Performance.jpeg" alt="Performance table">
+
+                <h5 class="anotation">"stat NiagaraUI console command"</h5>
+
+                <p>
+                    This screenshot shows performance metrics captured in a scene with 1,000 particles running on AMD
+                    Ryzen 9 5900X.
+                    It takes approximately 0.05ms to generate sprite data and 0.1ms to generate ribbon data. These
+                    numbers DO NOT include any actual Niagara simulation or rendering time.
+                    You can use “stat NiagaraUI” in console to check on the performance.
+                </p>
+
+                <h2 id="Install">Installation Guide</h2>
+
+                <p>You have 3 options how to install the plugin:</p>
+                <ol>
+                    <li>
+                        <b>Install a precompiled plugin into Unreal Engine:</b><br><br>
+                        Recommended if you want to use plugin across multiple projects.<br><br>
+                        <b>Installation Steps:</b><br>
+                        <ul>
+                            <li>Download the precompiled plugin for your version of Unreal Engine</li>
+                            <li>Extract the whole plugin folder into …\YourEngineInstallationPath\Engine\Plugins\</li>
+                            <li>Enable Niagara UI Renderer in your project’s Plugins settings</li>
+                            <li>Enjoy!</li>
+                        </ul>
+                    </li><br>
+                    <li>
+                        <b>Install precompiled plugin into your project only</b><br><br>
+                        Recommended if you want to use the plugin in one project.<br><br>
+                        <b>Installation Steps:</b><br>
+                        <ul>
+                            <li>Download the precompiled plugin for your version of Unreal Engine</li>
+                            <li>Extract the whole plugin folder into …\YourProjectPath\Plugins\</li>
+                            <li>Enable Niagara UI Renderer in your project’s Plugins settings</li>
+                            <li>Enjoy!</li>
+                        </ul>
+                    </li><br>
+                    <li>
+                        <b>Compile your own version from GitHub:</b><br><br>
+                        Recommended if you’re an Unreal Engine God.<br><br>
+                        <b>Installation Steps:</b><br>
+                        <ul>
+                            <li>Download the plugin source from the GitHub repository</li>
+                            <li>Copy the plugin into your plugins folder</li>
+                            <li>Regenerate Visual Studio project files</li>
+                            <li>Recompile</li>
+                            <li>Enable Niagara UI Renderer in your project’s Plugins settings</li>
+                            <li>Enjoy!</li>
+                        </ul>
+                    </li><br>
+                </ol>
+
+                <h2 id="SetUp">Setting up Simple UI Particle System</h2>
+
+                <p>In this tutorial I'll use Unreal Engine 5 for all of the screenshots. Keep in mind that the setup is
+                    same in Unreal Engine 4, so you can still follow along.</p>
+
+                <ol>
+                    <li>
+                        Create your Niagara particle system. In this case I will use Directional Burst template. You can
+                        create whatever Niagara System you like, or use already existing one,
+                        but keep in mind, that this plugin <b>only supports CPU Sim Target.</b>
+                    </li>
+
+                    <img src="Images/SystemCreation.jpg" alt="Creating new niagara system">
+
+                    <li>
+                        Because Unreal cannot render “normal” particle materials as UI elements we’ll need to create a
+                        version of each particle material with “User Interface” (1) material domain.
+                        We’ll also need to swap out some nodes. Use Vertex Color (2) node instead of Particle Color node.
+                        Usual particle parameters such as Particle Radius, Particle Random, etc. won’t be available for
+                        UI particle materials.
+                        For sprites you can access Dynamic Parameter R and G data from Texture Coordinate with
+                        coordinate Index 1. This is how a transformation of a basic UI material looks like:
+                    </li>
+
+                    <img src="Images/MaterialTransfer.jpg" alt="Creating material for UI particles">
+
+                    <li>
+                        Add Niagara System Widget into your widget (you can find it in the widget palette under the “Niagara” category). With your widget selected you can pick your Niagara System in the details panel.
+                    </li>
+
+                    <img src="Images/DragWidget.jpg" alt="Add Niagara Widget">
+
+                    <li>
+                        You still won’t be able to see your particles because we need to apply the newly created UI material. There are two ways we can to that: You can either set the material directly into your Particle System renderer. 
+                        This will result in particle rendering correctly in the UI, but it will make it render incorrectly in the Niagara preview and in the world. Since I wouldn't recommend doing it this way, we'll take a look how to do it 
+                        the second way:
+                        We can use Material Remap List on the widget itself. 
+                        Just add a new element into it (1), select the original particle material on the left (2), and select the newly created UI material on the right (3, 4). You can repeat this for as many materials as you want. 
+                        Each material on the left will get automatically remapped to the one on the right when rendering UI. This way you can still see the correct preview of the particle system, 
+                        use the particle in the world and use it as a UI particle system! In this case I'll remap both DefaultSpriteMaterial and DefaultRibbonMaterial to my newly created material from step 2.
+                    </li>
+
+                    <img src="Images/MaterialRemap.jpg" alt="Material Remap List">
+
+                    <li>
+                        If you followed this tutorial you may not see any particles on your screen. It may be because We've used burst particles which spawn only once so they may be all dead. We can just recompile the widget, which will respawn the 
+                        particle system.
+                        We should see our niagara particles now. You can play around with more settings in the detail panel, for example if the particle system should auto activate or not. At this point is your UI particle set up and ready to go!
+                        You can animate it, activate it on button press or do whatever else you want! This is the result:
+                    </li>
+
+                    <img src="Images/Result.gif" alt="Tutorial Result">
+                </ol>
+
+                
+                <h2 id="WidgetVariables">Niagara System Widget Variables</h2>
+
+                <div class="propertyRow">
+                    <h3>Niagara System Reference</h3>
+                    <p>Reference to the niagara system asset</p>
+                </div>
+
+                <div class="propertyRow">
+                    <h3>Material Remap List</h3>
+                    <p>List of material references used to remap materials on the particle system, to materials with "User Interface" material domain.<br><br>
+                        Every Key (Material on the left) will be remapped to it's Value (Material on the right)<br><br>
+                        This is useful for keeping the particle system rendering correctly in the niagara editor and in the world, while it still can be used as UI particle system.<br><br>                
+                        The alternative is to apply materials with "User Interface" material domain directly in niagara renderers, but this will result in particle system
+                        not rendering correctly, if used outside UI renderer.</p>
+                </div>
+
+                <div class="propertyRow">
+                    <h3>Auto Activate</h3>
+                    <p>Should be this particle system automatically activated?</p>
+                </div>
+
+                <p><b>Advanced:</b></p>
+
+                <div class="propertyRow">
+                    <h3>Fake Depth Scale</h3>
+                    <p>Scale particles based on their position in Y-axis (towards the camera)</p>
+                </div>
+
+                <div class="propertyRow">
+                    <h3>Fake Depth Scale Distance</h3>
+                    <p>Fake distance from camera if the particle is at 0 0 0 - Particles will be getting bigger quicker the lower this number is</p>
+                </div>
+
+                <div class="propertyRow">
+                    <h3>Show Debug System in World</h3>
+                    <p>Show debug particle system we're rendering in the game world. It'll be near 0 0 0</p>
+                </div>
+
+
+                <h2 id="WidgetFunctions">Niagara System Widget Functions</h2>
+
+                <div class="functionRow">
+                    <h3>void</h3>
+                    <h3>ActivateSystem(bool Reset)</h3>
+                    <p>Activate Niagara System with option to reset the simulation</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>void</h3>
+                    <h3>DeactivateSystem()</h3>
+                    <p>Deactivate Niagara System</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>UNiagaraUIComponent*</h3>
+                    <h3>GetNiagaraComponent()</h3>
+                    <p>Return Niagara Component reference for the particle system.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>This plugin was developed by Michal Smoleň and is distributed under the MIT License.</p>
+    </footer>
+</body>

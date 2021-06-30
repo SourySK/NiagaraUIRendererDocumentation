@@ -1,0 +1,401 @@
+.navigationToggle {
+  position: fixed;
+  z-index: 5;
+  right: 5px;
+  top: 5px;
+}
+
+.navigationToggle img {
+  width: 40px;
+  opacity: 0.5;
+}
+
+#navigationCheckbox:checked ~ .navigation {
+  -webkit-transform: translateX(-400px);
+          transform: translateX(-400px);
+}
+
+.navigation {
+  position: fixed;
+  top: 35px;
+  left: -10px;
+  background-color: #f38a00;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 15px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  width: 290px;
+}
+
+.navigation h3 {
+  margin-left: 20px;
+}
+
+.navigation ul {
+  padding-left: 25px;
+  padding-bottom: 10px;
+}
+
+.navigation li {
+  list-style: none;
+  margin: 10px 20px 10px 0px;
+  padding: 8px 5px 4px;
+  border-bottom: 1px solid #EEE;
+}
+
+.navigation li:hover {
+  background-color: #EEE;
+  color: #111;
+}
+
+@media (min-width: 850px) {
+  .documentationLayout {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .navigationToggle {
+    display: none;
+  }
+  .navigation {
+    position: static;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    background-color: transparent;
+    border-radius: 0;
+  }
+  .navigation h3 {
+    margin-top: 0;
+    margin-left: 0;
+    color: #666;
+  }
+  .navigation ul {
+    padding-left: 0;
+  }
+  #navigationCheckbox:checked ~ .navigation {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .documentation {
+    width: 70%;
+    max-width: 1200px;
+  }
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-size: large;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #EEE;
+}
+
+.complementary {
+  color: #f38a00;
+  background-color: transparent;
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  border: 3px solid #EEE;
+  border-radius: 7px;
+  margin: 10px 0;
+  padding: 7px 5px;
+  text-align: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: #EEE;
+  color: #111;
+}
+
+.smallText {
+  font-size: small;
+}
+
+.background {
+  background-image: url("images/Banner.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top center;
+}
+
+footer {
+  background-color: #111;
+  margin: 0;
+  margin-top: 800px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: small;
+  color: #666;
+}
+
+.titleCard {
+  min-height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: justify-content;
+}
+
+.titleCard h1 {
+  margin: 0;
+  margin-top: -20px;
+}
+
+.titleCard h4 {
+  font-size: small;
+  margin: 0 0 15px;
+}
+
+@media (min-width: 850px) {
+  .titleCard {
+    min-height: 1200px;
+    position: relative;
+  }
+  .titleCard .titleBox {
+    display: block;
+    position: absolute;
+    left: 20%;
+    top: 27%;
+  }
+  .titleCard .downloads {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .titleCard h1 {
+    font-size: 100px;
+  }
+  .titleCard h4 {
+    font-size: 36px;
+    padding-left: 4px;
+  }
+  .titleCard .smallText {
+    font-size: 16px;
+    margin: 2px;
+  }
+  .titleCard .button {
+    width: 280px;
+    font-size: 25px;
+  }
+}
+
+.videoWrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mainDocumentation {
+  background-color: #111;
+  padding-bottom: 50px;
+}
+
+.documentationTitle, .documentationArrow {
+  color: #666;
+  text-align: center;
+  padding: 20px 20px 8px 20px;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.documentationArrow {
+  padding: 0;
+  margin-bottom: 100px;
+  font-size: 1em;
+}
+
+.documentation {
+  font-size: 0.85em;
+  overflow-x: hidden;
+}
+
+.documentation #Overview {
+  margin-top: 0;
+}
+
+.documentation h2 {
+  margin-left: 18px;
+}
+
+.documentation p {
+  text-align: justify;
+  margin: 18px;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.documentation ol {
+  margin-right: 18px;
+}
+
+.documentation .anotation {
+  text-align: center;
+  margin-top: 4px;
+  color: #AAA;
+  font-weight: normal;
+}
+
+.documentation img {
+  width: 100%;
+}
+
+.documentation li {
+  margin: 20px 0 20px;
+  font-size: 0.9em;
+  text-align: justify;
+}
+
+.documentation ul li {
+  margin: 8px 0;
+}
+
+.documentation .propertyRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0 50px;
+}
+
+.documentation .propertyRow h3 {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  max-width: 25%;
+  font-size: 1em;
+  word-wrap: break-word;
+}
+
+.documentation .propertyRow p {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  border-left: 1px solid #EEE;
+  padding-left: 10px;
+  word-wrap: break-word;
+}
+
+.documentation .functionRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0 50px;
+}
+
+.documentation .functionRow h3 {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  max-width: 25%;
+  font-size: 1em;
+  word-wrap: break-word;
+}
+
+.documentation .functionRow p {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  border-left: 1px solid #EEE;
+  padding-left: 10px;
+  word-wrap: break-word;
+}
+
+@media (min-width: 850px) {
+  .documentationTitle {
+    padding: 30px 20px 5px 20px;
+  }
+  .documentation h2 {
+    margin-left: 0;
+  }
+  .documentation p {
+    margin-left: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */
