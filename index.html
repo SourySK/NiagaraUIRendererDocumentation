@@ -161,12 +161,12 @@
 
                 <h2 id="SetUp">Setting up Simple UI Particle System</h2>
 
-                <p>In this tutorial I'll use Unreal Engine 5 for all of the screenshots. Keep in mind that the setup is
+                <p>In this tutorial, I'll use Unreal Engine 5 for all of the screenshots. Keep in mind that the setup is the
                     same in Unreal Engine 4, so you can still follow along.</p>
 
                 <ol>
                     <li>
-                        Create your Niagara particle system. In this case I will use Directional Burst template. You can
+                        Create your Niagara particle system. In this case, I will use Directional Burst template. You can
                         create whatever Niagara System you like, or use already existing one,
                         but keep in mind, that this plugin <b>only supports CPU Sim Target.</b>
                     </li>
@@ -179,14 +179,14 @@
                         We’ll also need to swap out some nodes. Use Vertex Color (2) node instead of Particle Color node.
                         Usual particle parameters such as Particle Radius, Particle Random, etc. won’t be available for
                         UI particle materials.
-                        For sprites you can access Dynamic Parameter R and G data from Texture Coordinate with
+                        For sprites, you can access Dynamic Parameter R and G data from Texture Coordinate with
                         coordinate Index 1. This is how a transformation of a basic UI material looks like:
                     </li>
 
                     <img src="Images/MaterialTransfer.jpg" alt="Creating material for UI particles">
 
                     <li>
-                        Add Niagara System Widget into your widget (you can find it in the widget palette under the “Niagara” category). With your widget selected you can pick your Niagara System in the details panel.
+                        Add Niagara System Widget into your widget (you can find it in the widget palette under the “Niagara” category). With your widget selected, you can pick your Niagara System in the details panel.
                     </li>
 
                     <img src="Images/DragWidget.jpg" alt="Add Niagara Widget">
@@ -204,10 +204,10 @@
                     <img src="Images/MaterialRemap.jpg" alt="Material Remap List">
 
                     <li>
-                        If you followed this tutorial you may not see any particles on your screen. It may be because We've used burst particles which spawn only once so they may be all dead. We can just recompile the widget, which will respawn the 
+                        If you followed this tutorial you may not see any particles on your screen. It may be because We've used burst particles which spawn only once, so they may be all dead. We can just recompile the widget, which will respawn the 
                         particle system.
                         We should see our niagara particles now. You can play around with more settings in the detail panel, for example if the particle system should auto activate or not. At this point is your UI particle set up and ready to go!
-                        You can animate it, activate it on button press or do whatever else you want! This is the result:
+                        You can animate it, activate it on button press, or do whatever else you want! This is the result:
                     </li>
 
                     <img src="Images/Result.gif" alt="Tutorial Result">
@@ -224,7 +224,7 @@
                 <div class="propertyRow">
                     <h3>Material Remap List</h3>
                     <p>List of material references used to remap materials on the particle system, to materials with "User Interface" material domain.<br><br>
-                        Every Key (Material on the left) will be remapped to it's Value (Material on the right)<br><br>
+                        Every Key (Material on the left) will be remapped to its Value (Material on the right)<br><br>
                         This is useful for keeping the particle system rendering correctly in the niagara editor and in the world, while it still can be used as UI particle system.<br><br>                
                         The alternative is to apply materials with "User Interface" material domain directly in niagara renderers, but this will result in particle system
                         not rendering correctly, if used outside UI renderer.</p>
