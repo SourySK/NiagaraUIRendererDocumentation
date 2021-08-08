@@ -64,6 +64,9 @@
                     <a href="#Install" class="navigationLink">
                         <li>Installation Guide</li>
                     </a>
+                    <a href="#Tutorials" class="navigationLink">
+                        <li>Tutorials</li>
+                    </a>
                     <a href="#SetUp" class="navigationLink">
                         <li>Beginner Guide</li>
                     </a>
@@ -170,6 +173,42 @@
                     </li><br>
                 </ol>
 
+                <h2 id="Tutorials">Tutorials</h2>
+                <p>
+                    I've also made some tutorials. They range from beginner to a bit more advanced effects.
+                </p>
+                <p>
+                    Before you watch them, I would like to apologize for my English. I know that I have a lot to work on :)
+                </p>
+
+                <div class="videoWrap">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1shJqOcEb0E"
+                        title="Beginner Tutorial" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <h5 class="anotation">Beginner Tutorial - Button dissolve effect</h5>
+
+                <div class="videoWrap">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1O4fLjqosBg"
+                        title="Intermediate Tutorial" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <h5 class="anotation">Intermediate Tutorial - Mouse trail</h5>
+
+                <div class="videoWrap">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iMBJ4-39mu8"
+                        title="Advanced Tutorial" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <h5 class="anotation">Advanced Tutorial - Coin collect effect</h5>
+
+
                 <h2 id="SetUp">Setting up Simple UI Particle System</h2>
 
                 <p>In this tutorial, I'll use Unreal Engine 5 for all of the screenshots. Keep in mind that the setup is the
@@ -191,7 +230,13 @@
                         Usual particle parameters such as Particle Radius, Particle Random, etc. won’t be available for
                         UI particle materials.
                         For sprites, you can access Dynamic Parameter R and G data from Texture Coordinate with
-                        coordinate Index 1. This is how a transformation of a basic UI material looks like:
+                        coordinate Index 1. 
+                        In the new version of the plugin, you can also use automatic material conversion. Just right click
+                        on your material, and click on "Create Niagara UI Material" option. This will create a duplicate
+                        of the material, which will have correct material domain, and vertex color nodes in it. Please keep
+                        in mind, that this conversion isn't always perfect, and it's still recommended to manually check
+                        the newly created material, so treat this option just as a good starting point for your material conversion.
+                        This is how a transformation of a basic UI material looks like:
                     </li>
 
                     <img src="Images/MaterialTransfer.jpg" alt="Creating material for UI particles">
@@ -268,6 +313,11 @@
                     <p>Show debug particle system we're rendering in the game world. It'll be near 0 0 0</p>
                 </div>
 
+                <div class="propertyRow">
+                    <h3>Disable Warnings</h3>
+                    <p>Disable warnings for this Widget</p>
+                </div>
+
 
                 <h2 id="WidgetFunctions">Niagara System Widget Functions</h2>
 
@@ -287,6 +337,18 @@
                     <h3>UNiagaraUIComponent*</h3>
                     <h3>GetNiagaraComponent()</h3>
                     <p>Return Niagara Component reference for the particle system.</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>void</h3>
+                    <h3>UpdateNiagaraSystemReference(UNiagaraSystem* NewNiagaraSystem)</h3>
+                    <p>Updates the Niagara System reference. This will cause the particle system to reset</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>void</h3>
+                    <h3>UpdateTickWhenPaused(bool NewTickWhenPaused)</h3>
+                    <p>Updates Tick When Paused - Should be this particle system updated even when the game is paused? Note that this will reset the particle simulation</p>
                 </div>
 
             </div>
