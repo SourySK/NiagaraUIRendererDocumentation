@@ -70,6 +70,9 @@
                     <a href="#SetUp" class="navigationLink">
                         <li>Beginner Guide</li>
                     </a>
+                    <a href="#DynamicMaterial" class="navigationLink">
+                        <li>Dynamic Materials</li>
+                    </a>
                     <a href="#WidgetVariables" class="navigationLink">
                         <li>Widget Variables</li>
                     </a>
@@ -111,7 +114,7 @@
 
                 <img src="Images/Performance.jpeg" alt="Performance table">
 
-                <h5 class="anotation">"stat NiagaraUI console command"</h5>
+                <h5 class="anotation">"stat NiagaraUI" console command</h5>
 
                 <p>
                     This screenshot shows performance metrics captured in a scene with 1,000 particles running on AMD
@@ -269,6 +272,19 @@
                     <img src="Images/Result.gif" alt="Tutorial Result">
                 </ol>
 
+
+
+                <h2 id="DynamicMaterial">Using Dynamic Material Instances</h2>
+
+                <p>
+                    Since version 1.1.7 it's possible to use dynamic material instances as target materials in the material remap list. This simplifies creation of variations, and allows for a greater runtime customizability.
+                    In order to simplify this two new functions were added: SetRemapMaterial() and GetRemapMaterial(). You can use them to easily modify the material remap list at runtime.
+                </p>
+
+                <img src="Images/DynamicMaterialInstance.jpg" alt="Dynamic Material Instance in Blueprint">
+
+                <h5 class="anotation">Example of using a Dynamic Material Instance with a texture parameter</h5>
+
                 
                 <h2 id="WidgetVariables">Niagara System Widget Variables</h2>
 
@@ -294,6 +310,11 @@
                 <div class="propertyRow">
                     <h3>Tick when Paused</h3>
                     <p>Should be this particle system updated even when the game is paused?</p>
+                </div>
+
+                <div class="propertyRow">
+                    <h3>Desired Widget Size</h3>
+                    <p>The size of this particle widget used when calculating it's desired size. Don't set directly from code, call SetDesiredWidgetSize instead.</p>
                 </div>
 
                 <p><b>Advanced:</b></p>
@@ -349,6 +370,24 @@
                     <h3>void</h3>
                     <h3>UpdateTickWhenPaused(bool NewTickWhenPaused)</h3>
                     <p>Updates Tick When Paused - Should be this particle system updated even when the game is paused? Note that this will reset the particle simulation</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>void</h3>
+                    <h3>SetDesiredWidgetSize(FVector2D NewDesiredSize)</h3>
+                    <p>Updates the desired widget size. If calling from code call this instead of setting the DesiredWidgetSize directly.</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>void</h3>
+                    <h3>SetRemapMaterial(UMaterialInterface* OriginalMaterial, UMaterialInterface* RemapMaterial)</h3>
+                    <p>Sets / Updates a remap material for a source particle material</p>
+                </div>
+
+                <div class="functionRow">
+                    <h3>UMaterialInterface*</h3>
+                    <h3>GetRemapMaterial(UMaterialInterface* OriginalMaterial)</h3>
+                    <p>Returns a remap material for a given original particle material specified in the Niagara Emitter</p>
                 </div>
 
             </div>
